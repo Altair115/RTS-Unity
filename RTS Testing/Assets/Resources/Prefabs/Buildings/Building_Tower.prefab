@@ -71,5 +71,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 8967498793699106044, guid: 75ed2d1c3087e8a4cbbccdcc641d5584, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967498793699106044, guid: 75ed2d1c3087e8a4cbbccdcc641d5584, type: 3}
+      propertyPath: m_Size.y
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ed2d1c3087e8a4cbbccdcc641d5584, type: 3}

@@ -1,19 +1,19 @@
+using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class BuildingPlacer : MonoBehaviour
 {
-    private UIManager _uiManager;
     private Building _placedBuilding = null;
     private Ray _ray;
     private RaycastHit _raycastHit;
     private Vector3 _lastPlacementPosition;
+
+    public static event Action UpdateResourceTexts;
+    public static event Action CheckBuildingButtons;
     
-    private void Awake()
-    {
-        _uiManager = GetComponent<UIManager>();
-    }
 
     private void Update()
     {
@@ -42,7 +42,7 @@ public class BuildingPlacer : MonoBehaviour
                 _lastPlacementPosition = _raycastHit.point;
             }
 
-            if (_placedBuilding.HasValidPlacement && Mouse.current.leftButton.wasPressedThisFrame && !EventSystem.current.IsPointerOverGameObject())
+            if (_placedBuilding.HasValidPlacement && Mouse.current.leftButton.wasReleasedThisFrame && !EventSystem.current.IsPointerOverGameObject())
             {
                 _PlaceBuilding();
             }
@@ -68,8 +68,9 @@ public class BuildingPlacer : MonoBehaviour
             _PreparePlacedBuilding(_placedBuilding.DataIndex);
         else
             _placedBuilding = null;
-        _uiManager.UpdateResourceTexts();
-        _uiManager.CheckBuildingButtons();
+        
+        UpdateResourceTexts?.Invoke();
+        CheckBuildingButtons?.Invoke();
     }
 
     private void _CancelPlacedBuilding()
