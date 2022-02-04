@@ -24,7 +24,7 @@ public class Building
         _data = data;
         _currentHealth = data.HP;
 
-        GameObject building = GameObject.Instantiate(Resources.Load($"Prefabs/Buildings/{_data.Code}")) as GameObject;
+        GameObject building = GameObject.Instantiate(Resources.Load($"Prefabs/Buildings/Building_{_data.Code}")) as GameObject;
         _transform = building.transform;
         
         _materials = new List<Material>();
@@ -87,6 +87,18 @@ public class Building
         SetMaterials();
         // remove "is trigger" flag from box collider to allow for collisions with units
         _transform.GetComponent<BoxCollider>().isTrigger = false;
+        
+        // update game resources: remove the cost of the building
+        // from each game resource
+        foreach (KeyValuePair<string, int> pair in _data.Cost)
+        {
+            Globals.GAME_RESOURCES[pair.Key].AddAmount(-pair.Value);
+        }
+    }
+    
+    public bool CanBuy()
+    {
+        return _data.CanBuy();
     }
     
     public void CheckValidPlacement()
