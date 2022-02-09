@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7330202483964250487, guid: 633012b0879b0924f82ee4cccab9924a, type: 3}
       propertyPath: m_Name
-      value: Building
+      value: Building_House
+      objectReference: {fileID: 0}
+    - target: {fileID: 7330202483964250487, guid: 633012b0879b0924f82ee4cccab9924a, type: 3}
+      propertyPath: m_TagString
+      value: Unit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 633012b0879b0924f82ee4cccab9924a, type: 3}

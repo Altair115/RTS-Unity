@@ -71,6 +71,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 8012500310916448417, guid: 75ed2d1c3087e8a4cbbccdcc641d5584, type: 3}
+      propertyPath: m_TagString
+      value: Unit
+      objectReference: {fileID: 0}
     - target: {fileID: 8967498793699106044, guid: 75ed2d1c3087e8a4cbbccdcc641d5584, type: 3}
       propertyPath: m_Size.x
       value: 4
