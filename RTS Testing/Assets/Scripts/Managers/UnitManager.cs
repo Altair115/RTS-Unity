@@ -8,6 +8,28 @@ namespace Managers
         [SerializeField] private GameObject selectionCircle;
         
         private bool _hovered = false;
+        private Transform _canvas;
+        private GameObject _healthbar;
+        
+        private void Awake()
+        {
+            _canvas = GameObject.Find("Canvas").transform;
+        }
+
+        private void _SelectUtil()
+        {
+            Globals.SELECTED_UNITS.Add(this);
+            selectionCircle.SetActive(true);
+            if (_healthbar == null)
+            {
+                _healthbar = GameObject.Instantiate(Resources.Load("Prefabs/UI/Healthbar")) as GameObject;
+                _healthbar.transform.SetParent(_canvas);
+                Healthbar h = _healthbar.GetComponent<Healthbar>();
+                h.Initialize(transform);
+                h.SetPosition();
+            }
+        }
+
 
         private void OnMouseEnter()
         {
@@ -41,9 +63,10 @@ namespace Managers
 
         public void Deselect()
         {
-            if (!Globals.SELECTED_UNITS.Contains(this)) return;
             Globals.SELECTED_UNITS.Remove(this);
             selectionCircle.SetActive(false);
+            Destroy(_healthbar);
+            _healthbar = null;
         }
     }
 }
