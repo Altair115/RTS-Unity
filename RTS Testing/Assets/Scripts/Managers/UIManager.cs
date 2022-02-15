@@ -59,7 +59,7 @@ public class UIManager : MonoBehaviour
         _buildingButtons = new Dictionary<string, Button>();
         for (int i = 0; i < Globals.BUILDING_DATA.Length; i++)
         {
-            BuildingData data = Globals.BUILDING_DATA[i];
+            UnitData data = Globals.BUILDING_DATA[i];
             GameObject button = Instantiate(buildingButtonPrefab, buildingMenu, true);
             button.name = data.GetUnitName();
             button.transform.Find("Text").GetComponent<TMP_Text>().text = data.GetUnitName();
@@ -101,11 +101,11 @@ public class UIManager : MonoBehaviour
 
     private void _OnCheckBuildingButtons()
     {
-        foreach (BuildingData data in Globals.BUILDING_DATA)
+        foreach (UnitData data in Globals.BUILDING_DATA)
             _buildingButtons[data.GetCode()].interactable = data.CanBuy();
     }
     
-    private void _OnHoverBuildingButton(BuildingData data)
+    private void _OnHoverBuildingButton(UnitData data)
     {
         SetInfoPanel(data);
         ShowInfoPanel(true);
@@ -126,13 +126,13 @@ public class UIManager : MonoBehaviour
     
     public void CheckBuildingButtons()
     {
-        foreach (BuildingData data in Globals.BUILDING_DATA)
+        foreach (UnitData data in Globals.BUILDING_DATA)
         {
             _buildingButtons[data.GetCode()].interactable = data.CanBuy();
         }
     }
     
-    public void SetInfoPanel(BuildingData data)
+    public void SetInfoPanel(UnitData data)
     {
         // update texts
         if (data.GetCode() != "") _infoPanelTitleText.text = data.GetCode();

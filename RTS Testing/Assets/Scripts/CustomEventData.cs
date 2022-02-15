@@ -2,11 +2,11 @@
 
 public class CustomEventData
 {
-    public BuildingData buildingData;
+    private UnitData unitData;
 
-    public CustomEventData(BuildingData buildingData)
+    public CustomEventData(UnitData unitData)
     {
-        this.buildingData = buildingData;
+        this.unitData = unitData;
     }
 }
 

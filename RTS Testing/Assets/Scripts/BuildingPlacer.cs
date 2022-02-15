@@ -51,9 +51,7 @@ public class BuildingPlacer : MonoBehaviour
 
     private void _PreparePlacedBuilding(int buildingDataIndex)
     {
-        Building building = new Building(
-            Globals.BUILDING_DATA[buildingDataIndex]
-        );
+        Building building = new Building(Globals.BUILDING_DATA[buildingDataIndex]);
         // link the data into the manager
         building.Transform.GetComponent<BuildingManager>().Initialize(building);
         _placedBuilding = building;

@@ -5,7 +5,7 @@ public class Globals
 {
     public static int TerrainLayerMask = 1 << 6;
     public static List<UnitManager> SELECTED_UNITS = new List<UnitManager>();
-    public static BuildingData[] BUILDING_DATA;
+    public static BuildingData[] BUILDING_DATA; //Hatefull thing
     
     public static Dictionary<string, GameResource> GAME_RESOURCES = new Dictionary<string, GameResource>
     {

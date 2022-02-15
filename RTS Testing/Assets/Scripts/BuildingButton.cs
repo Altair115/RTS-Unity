@@ -4,12 +4,12 @@ using UnityEngine.EventSystems;
 
 public class BuildingButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private BuildingData _buildingData;
+    private UnitData _buildingData;
     
-    public static event Action<BuildingData> HoverBuildingButton;
+    public static event Action<UnitData> HoverBuildingButton;
     public static event Action UnhoverBuildingButton;
 
-    public void Initialize(BuildingData buildingData)
+    public void Initialize(UnitData buildingData)
     {
         _buildingData = buildingData;
     }

@@ -3,9 +3,13 @@ using UnityEngine;
 
 namespace Managers
 {
+    [RequireComponent(typeof(BoxCollider))]
     public class UnitManager : MonoBehaviour
     {
         [SerializeField] private GameObject selectionCircle;
+        
+        protected BoxCollider _collider;
+        protected virtual Unit Unit { get; set; }
         
         private bool _hovered = false;
         private Transform _canvas;
@@ -45,6 +49,12 @@ namespace Managers
         {
             if (_hovered && Input.GetMouseButtonDown(0))
                 Select(true);
+        }
+        
+        public void Initialize(Unit unit)
+        {
+            _collider = GetComponent<BoxCollider>();
+            Unit = unit;
         }
 
         public void Select() { Select(false); }
