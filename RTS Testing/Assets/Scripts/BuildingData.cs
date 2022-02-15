@@ -22,7 +22,7 @@ public class BuildingData : ScriptableObject
        return unitName;
    }
 
-   public string GetDiscription()
+   public string GetDescription()
    {
        return description;
    }
